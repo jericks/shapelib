@@ -43,8 +43,8 @@ jobs:
     - name: Build with ${{ matrix.compiler }}
       run: cmake --build build
 
-    - name: Test
-      working-directory: build
-      env:
-        CTEST_OUTPUT_ON_FAILURE: 1
-      run: ctest -C ${{ matrix.configuration }}
+    - uses: actions/upload-artifact@v2
+      if: ${{ runner.os == 'macOS' }}
+      with:
+          name: shapelib-macos
+          path: build/*.dylib
