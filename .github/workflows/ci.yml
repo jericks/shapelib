@@ -48,3 +48,15 @@ jobs:
       with:
           name: shapelib-macos
           path: build/*.dylib
+
+    - uses: actions/upload-artifact@v2
+      if: ${{ runner.os == 'Linux' }}
+      with:
+          name: shapelib-linux
+          path: build/*.so
+
+    - uses: actions/upload-artifact@v2
+      if: ${{ runner.os == 'Windows' }}
+      with:
+          name: shapelib-windows
+          path: build/*.dll
