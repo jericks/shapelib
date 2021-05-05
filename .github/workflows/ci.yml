@@ -59,4 +59,4 @@ jobs:
       if: ${{ runner.os == 'Windows' }}
       with:
           name: shapelib-windows
-          path: build/dll/Debug/*.lib
+          path: build/Debug/shp.lib
